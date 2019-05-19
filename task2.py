@@ -7,10 +7,7 @@ data = ''
 con = None
 
 query_string = '''
-    SELECT Lastname
-    FROM Employee
-    ORDER BY Lastname
-    LIMIT 10
+    pass
 '''
 
 try:
