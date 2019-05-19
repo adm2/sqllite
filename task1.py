@@ -15,7 +15,7 @@ query_string = '''
     JOIN Track ON InvoiceLine.TrackID = Track.TrackID
     JOIN Genre ON Track.GenreID = Genre.GenreID
 
-    WHERE Genre.Name NOT "Rock" AND Employee.BirthDate < "1969-05-19"
+    WHERE Genre.Name != "Rock" AND Employee.BirthDate < "1969-05-19"
     ORDER BY Employee.City ASC, Employee.Email DESC
     LIMIT 10
 
