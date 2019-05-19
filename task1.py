@@ -16,7 +16,7 @@ query_string = '''
 
 
     WHERE Employee.BirthDate < "1969-05-19"
-    ORDER BY City ASC, Email DESC
+    ORDER BY Employee.City ASC, Employee.Email DESC
     LIMIT 10
 
 '''
