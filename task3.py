@@ -7,7 +7,14 @@ data = ''
 con = None
 
 query_string = '''
-    pass
+    SELECT FirstName, Phone
+    FROM Customer 
+    LEFT JOIN Invoice 
+        ON Customer.CustomerID = Invoice.CustomerID   
+    LEFT JOIN InvoiceLine 
+        ON InvoiceLine.InvoiceID = Invoice.InvoiceID    
+    WHERE InvoiceLine.UnitPrice = (SELECT max(InvoiceLine.UnitPrice) FROM InvoiceLine)
+    ORDER BY FirstName
 '''
 
 try:
@@ -15,11 +22,7 @@ try:
     cur = con.cursor()
     cur.execute(query_string)
     con.commit()
-    con.rollback()
-    print('=================================')
     pprint.pprint(cur.fetchall())
-    print('=================================')
-    pprint.pprint(data)
 
 except Exception as e:
     print(e)
