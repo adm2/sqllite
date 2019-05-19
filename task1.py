@@ -7,20 +7,27 @@ data = ''
 con = None
 
 query_string = '''
-    pass
+    SELECT Customer.CustomerID, Customer.FirstName, Customer.LastName, Customer.Phone, Customer.Company
+    FROM Customer
+    LEFT JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId
+
+
+
+
+
+
+
+
+    ORDER BY Employee.City ASC, Employee.Email DESC
+
+
 '''
 
 try:
     con = lite.connect('Chinook_Sqlite.sqlite')
     cur = con.cursor()
     cur.execute(query_string)
-    con.commit()
-    con.rollback()
-    print('=================================')
     pprint.pprint(cur.fetchall())
-    print('=================================')
-    pprint.pprint(data)
-
 except Exception as e:
     print(e)
     sys.exit(1)
