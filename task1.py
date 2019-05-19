@@ -9,7 +9,7 @@ con = None
 query_string = '''
     SELECT Customer.CustomerID, Customer.FirstName, Customer.LastName, Customer.Phone, Customer.Company
     FROM Customer
-    LEFT JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId
+    JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId
 
 
 
@@ -19,7 +19,7 @@ query_string = '''
 
 
     ORDER BY Employee.City ASC, Employee.Email DESC
-
+    LIMIT 10
 
 '''
 

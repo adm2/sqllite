@@ -9,8 +9,8 @@ con = None
 query_string = '''
     SELECT FirstName, Phone
     FROM Customer 
-    LEFT JOIN Invoice ON Customer.CustomerID = Invoice.CustomerID   
-    LEFT JOIN InvoiceLine ON InvoiceLine.InvoiceID = Invoice.InvoiceID    
+        JOIN Invoice ON Customer.CustomerID = Invoice.CustomerID   
+            LEFT JOIN InvoiceLine ON InvoiceLine.InvoiceID = Invoice.InvoiceID    
     WHERE InvoiceLine.UnitPrice = (SELECT max(InvoiceLine.UnitPrice) FROM InvoiceLine)
     ORDER BY FirstName
 '''
