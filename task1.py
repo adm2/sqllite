@@ -10,6 +10,9 @@ query_string = '''
     SELECT Customer.CustomerID, Customer.FirstName, Customer.LastName, Customer.Phone, Customer.Company
     FROM Customer
     JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId
+    JOIN Invoice ON Customer.CustomerID = Invoice.CustomerID
+    JOIN InvoiceLine ON InvoiceLine.InvoiceID = Invoice.InvoiceID
+    JOIN Track ON InvoiceLine.TrackID = Track.TrackID
 
 
 
