@@ -7,6 +7,10 @@ data = ''
 con = None
 
 query_string = '''
+    select distinct G.Name
+    from Genre G
+    join Track T on T.GenreId = G.GenreId
+    join InvoiceLine I on I.TrackId = T.TrackId
 
 '''
 
