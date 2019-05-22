@@ -7,6 +7,12 @@ data = ''
 con = None
 
 query_string = '''
+    select C.City
+    from Customer C
+    inner join Invoice I On C.CustomerID = I.CustomerID
+    group by C.City
+    order by sum(Total) desk
+    limit 3
 
 '''
 
