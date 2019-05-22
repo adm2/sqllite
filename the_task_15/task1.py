@@ -7,7 +7,13 @@ data = ''
 con = None
 
 query_string = '''
+    select distinct C.FirstName || " " || C.LastName, C.Phone
+    from Customer C
+    inner join Invoice I on C.CustomerId = I.CustomerId
 
+
+
+    
 '''
 
 try:
